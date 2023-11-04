@@ -1,0 +1,128 @@
+@import url('https://fonts.googleapis.com/css2?family=IBM+Plex+Sans:wght@200;300;400;500;600;700&display=swap');
+/* Сброс стилей */
+
+* {
+  padding: 0;
+  margin: 0;
+  border: 0;
+  box-sizing: border-box;
+}
+
+/* Change Autocomplete styles in Chrome*/
+input:-webkit-autofill,
+input:-webkit-autofill:hover,
+input:-webkit-autofill:focus,
+textarea:-webkit-autofill,
+textarea:-webkit-autofill:hover,
+textarea:-webkit-autofill:focus,
+select:-webkit-autofill,
+select:-webkit-autofill:hover,
+select:-webkit-autofill:focus {
+  transition: background-color 5000s ease-in-out 0s;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  font-size: inherit;
+  font-weight: inherit;
+}
+
+a {
+  text-decoration: none;
+  color: currentColor;
+}
+
+ul {
+  list-style: none;
+}
+
+button {
+  font-family: inherit;
+  font-size: inherit;
+  font-weight: inherit;
+  color: currentColor;
+  background: none;
+  border: none;
+  cursor: pointer;
+}
+
+input,
+select {
+  background: none;
+  border: none;
+  outline: none;
+}
+
+body {
+  margin: 50px 0;
+  color: white;
+  background-color: #212121;
+  font-family: Inter, sans-serif;
+  overflow-x: hidden;
+
+  &::-webkit-scrollbar {
+    width: 10px;
+  }
+
+  &::-webkit-scrollbar-thumb {
+    background-color: rgb(155, 155, 155);
+    border-radius: 10px;
+    border: 2px solid #212121;
+  }
+
+  &::-webkit-scrollbar-track {
+    background-color: transparent;
+    border-radius: 10px;
+    padding: 5px;
+  }
+}
+
+.df {
+  display: flex;
+}
+
+.jcc {
+  justify-content: center;
+}
+
+.jcsb {
+  justify-content: space-between;
+}
+
+.aic {
+  align-items: center;
+}
+
+.jcfs {
+  justify-content: flex-start;
+}
+
+.h100vh {
+  height: 100vh;
+}
+
+.fdc {
+  flex-direction: column;
+}
+
+.cp {
+  cursor: pointer;
+}
+
+.MuiPagination-root.MuiPagination-text.css-1oj2twp-MuiPagination-root * {
+  color: white;
+  font-size: 18px;
+}
+
+.MuiButtonBase-root.MuiPaginationItem-root.MuiPaginationItem-sizeMedium.MuiPaginationItem-text.MuiPaginationItem-circular.Mui-selected {
+  background-color: rgb(68, 68, 68);
+}
+
+.react-loading-skeleton.skeleton {
+  --base-color: #797979;
+  --highlight-color: #a5a5a5;
+}
