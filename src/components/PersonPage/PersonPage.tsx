@@ -51,7 +51,6 @@ export const PersonPage: FC = () => {
 
   useEffect(() => {
     const fetchData = async () => {
-      console.log("asd");
       const filmId = clickedPerson?.films[filmsPage]
         ?.split("/")
         .filter(Boolean)
@@ -84,6 +83,7 @@ export const PersonPage: FC = () => {
       setVehicles([vehiclesData?.payload]);
       setStarships([starshipsData?.payload]);
       setLoading(false);
+      console.log(vehicles.length);
     };
     fetchData();
 
@@ -102,6 +102,11 @@ export const PersonPage: FC = () => {
     if (gender == "male") return "Мужчина";
     if (gender == "female") return "Женщина";
     return "Неизвестно";
+  };
+
+  const checkHair = (color: string) => {
+    if (color === "n/a") return "Неизвестно";
+    return color;
   };
 
   const getDate = (time: string) =>
@@ -146,15 +151,20 @@ export const PersonPage: FC = () => {
     setStarshipsLoading(false);
   };
 
+  console.log(starships[0] === undefined);
+
   return (
     <MainDiv>
       <h2>Информация о персонаже</h2>
-      <div className="df jcsb aic" style={{ margin: "20px 0" }}>
+      <div
+        className="df jcsb aic"
+        style={{ margin: "20px 0", fontSize: "16.5px" }}
+      >
         <div>
           <p>Имя: {personData?.name}</p>
           <p>Рост: {personData?.height} см</p>
           <p>Вес: {personData?.mass} кг</p>
-          <p>Цвет волос: {personData?.hair_color}</p>
+          <p>Цвет волос: {checkHair(personData?.hair_color)}</p>
         </div>
         <div>
           <p>Цвет кожи: {personData?.skin_color}</p>
@@ -175,9 +185,17 @@ export const PersonPage: FC = () => {
               />
             ) : (
               <>
-                {films?.map((item: any, index: number) => (
-                  <FilmComponent data={item} key={index} />
-                ))}
+                {films[0] === undefined ? (
+                  <p style={{ margin: "10px 0", fontSize: "20px" }}>
+                    Не найдено
+                  </p>
+                ) : (
+                  <>
+                    {films?.map((item: any, index: number) => (
+                      <FilmComponent data={item} key={index} />
+                    ))}
+                  </>
+                )}
               </>
             )}
             {filmLoading && (
@@ -210,9 +228,17 @@ export const PersonPage: FC = () => {
               />
             ) : (
               <>
-                {vehicles?.map((item: any, index: number) => (
-                  <VehicleComponent data={item} key={index} />
-                ))}
+                {vehicles[0] === undefined ? (
+                  <p style={{ margin: "10px 0", fontSize: "20px" }}>
+                    Не найдено
+                  </p>
+                ) : (
+                  <>
+                    {vehicles?.map((item: any, index: number) => (
+                      <VehicleComponent data={item} key={index} />
+                    ))}
+                  </>
+                )}
               </>
             )}
             {vehiclesLoading && (
@@ -245,9 +271,17 @@ export const PersonPage: FC = () => {
               />
             ) : (
               <>
-                {starships?.map((item: any, index: number) => (
-                  <StarshipsComponent data={item} key={index} />
-                ))}
+                {starships[0] === undefined ? (
+                  <p style={{ margin: "10px 0", fontSize: "20px" }}>
+                    Не найдено
+                  </p>
+                ) : (
+                  <>
+                    {starships?.map((item: any, index: number) => (
+                      <StarshipsComponent data={item} key={index} />
+                    ))}
+                  </>
+                )}
               </>
             )}
             {starshipsLoading && (
