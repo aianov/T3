@@ -1,7 +1,7 @@
 # T3
-git clone <br/>
-cd ..
-cd starwars
-npm i
-npm start
+git clone<br/>
+cd ..<br/>
+cd starwars<br/>
+npm i<br/>
+npm start<br/>
 Enjoy ;D
